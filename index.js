@@ -6,9 +6,8 @@ const main = async () => {
 
   while (myOption !== '0') {
     myOption = await mostrarMenu();
+    if (myOption !== '0') await pausa();
   }
-
-  pausa();
 };
 
 main();
