@@ -39,8 +39,15 @@ const questions = [
   },
 ];
 
+const questionsInput = [
+  {
+    type: 'input',
+    name: 'press_enter',
+    message: `Presione ${'ENTER'.green} para continuar`,
+  },
+];
+
 const inquirerMenu = async () => {
-  //console.clear();
   console.log('==============================');
   console.log('    Seleccione una opción     ');
   console.log('==============================\n');
@@ -50,6 +57,12 @@ const inquirerMenu = async () => {
   return option;
 };
 
+const pausa = async () => {
+  const { press_enter } = await inquirer.prompt(questionsInput);
+  return press_enter;
+};
+
 module.exports = {
   inquirerMenu,
+  pausa,
 };
