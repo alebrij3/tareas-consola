@@ -7,7 +7,6 @@ const main = async () => {
   do {
     myOption = await inquirerMenu();
     await pausa();
-    console.log(myOption);
   } while (myOption !== 0);
 };
 
