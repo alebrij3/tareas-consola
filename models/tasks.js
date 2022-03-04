@@ -38,6 +38,7 @@ class Tasks {
     }
     return arr;
   }
+
   listFinishedTasks(completed = true) {
     const arr = [];
     let tasks = Object.keys(this._list);
@@ -52,6 +53,10 @@ class Tasks {
       }
     }
     return arr;
+  }
+
+  deleteTask(id) {
+    console.log('To delete:', id);
   }
 }
 
