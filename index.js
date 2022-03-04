@@ -26,6 +26,18 @@ const main = async () => {
           console.log(taskLine);
         });
         break;
+
+      case 3:
+        tasks.listFinishedTasks(true).forEach((task) => {
+          console.log(task);
+        });
+        break;
+
+      case 4:
+        tasks.listFinishedTasks(false).forEach((task) => {
+          console.log(task);
+        });
+        break;
     }
     saveDB(tasks.listArr);
     await pausa();

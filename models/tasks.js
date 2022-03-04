@@ -38,6 +38,21 @@ class Tasks {
     }
     return arr;
   }
+  listFinishedTasks(completed = true) {
+    const arr = [];
+    let tasks = Object.keys(this._list);
+    for (let i = 0; i < tasks.length; i++) {
+      let task = this._list[tasks[i]];
+      if (completed && task.dateFinish) {
+        arr.push(`${i + 1 + '.'} ${task.desc} :: ${'Completada'.green}`);
+        continue;
+      }
+      if (!completed && !task.dateFinish) {
+        arr.push(`${i + 1 + '.'} ${task.desc} :: ${'Pendiente'.red}`);
+      }
+    }
+    return arr;
+  }
 }
 
 module.exports = Tasks;
