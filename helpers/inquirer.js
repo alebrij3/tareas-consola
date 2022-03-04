@@ -60,8 +60,42 @@ const pausa = async () => {
   console.log('\n');
   await inquirer.prompt(question);
 };
+const taskName = async () => {
+  const question = [
+    {
+      type: 'input',
+      name: 'task_name',
+      message: `Escriba el nombre de la tarea: `,
+    },
+  ];
+  console.log('\n');
+  const { task_name } = await inquirer.prompt(question);
+
+  return task_name;
+};
+const readInput = async (message) => {
+  const question = [
+    {
+      type: 'input',
+      name: 'desc',
+      message,
+      validate(inputValue) {
+        if (inputValue.length === 0) {
+          return 'Por favor ingrese un valor';
+        } else {
+          return true;
+        }
+      },
+    },
+  ];
+  const { desc } = await inquirer.prompt(question);
+
+  return desc;
+};
 
 module.exports = {
   inquirerMenu,
   pausa,
+  taskName,
+  readInput,
 };
