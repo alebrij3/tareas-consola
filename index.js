@@ -46,7 +46,7 @@ const main = async () => {
 
       case 6:
         let taskToDelete = await chooseTaskToDelete(tasks._list);
-        console.log(taskToDelete);
+        delete tasks._list[taskToDelete];
         break;
     }
     saveDB(tasks.listArr);
