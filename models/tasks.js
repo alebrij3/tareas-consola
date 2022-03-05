@@ -54,10 +54,6 @@ class Tasks {
     }
     return arr;
   }
-
-  deleteTask(id) {
-    console.log('To delete:', id);
-  }
 }
 
 module.exports = Tasks;

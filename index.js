@@ -4,6 +4,7 @@ const {
   pausa,
   readInput,
   chooseTaskToDelete,
+  completeTask,
 } = require('./helpers/inquirer');
 const { saveDB, readDB } = require('./helpers/saveFile');
 const Task = require('./models/task');
@@ -42,6 +43,11 @@ const main = async () => {
         tasks.listFinishedTasks(false).forEach((task) => {
           console.log(task);
         });
+        break;
+
+      case 5:
+        let task = await completeTask(tasks._list);
+        tasks._list[task].dateFinish = 'finished';
         break;
 
       case 6:

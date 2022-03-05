@@ -112,6 +112,25 @@ const chooseTaskToDelete = async (tasks) => {
 
   return option;
 };
+const completeTask = async (tasks) => {
+  const choices = [];
+  const arr = [];
+  Object.keys(tasks).forEach((key) => arr.push(key));
+  arr.forEach((task) => {
+    choices.push({ value: task, name: tasks[task].desc });
+  });
+  const question = [
+    {
+      type: 'list',
+      name: 'option',
+      message: 'Elije una tarea',
+      choices,
+    },
+  ];
+  const { option } = await inquirer.prompt(question);
+
+  return option;
+};
 
 module.exports = {
   inquirerMenu,
@@ -119,4 +138,5 @@ module.exports = {
   taskName,
   readInput,
   chooseTaskToDelete,
+  completeTask,
 };
